@@ -22,8 +22,7 @@ class PrimitiveKVFormatter(object):
             elif isinstance(value, int) or isinstance(value, float):
                 return f'{{"{key}":{value}}}'
             elif isinstance(value, Decimal):
-                v = f'{value.normalize():f}'
-                return f'{{"{key}":{v}}}'
+                return f'{{"{key}":{value.normalize():f}}}'
             else:
                 raise ValueError("Non-primitive type")
         else:
