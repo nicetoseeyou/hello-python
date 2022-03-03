@@ -74,9 +74,9 @@ class TextUtils(object):
                             elif item and isinstance(item, MutableSequence):
                                 queue.append((f'{key}{key_joiner}{array_index_prefix}{index}', item))
                             else:
-                                result.append(formatter.format(f'{key}{key_joiner}{array_index_prefix}{index}', item))
+                                result.append(formatter.format_kv(f'{key}{key_joiner}{array_index_prefix}{index}', item))
                     else:
-                        result.append(formatter.format(key, val))
+                        result.append(formatter.format_kv(key, val))
                 return ','.join(result)
             else:
                 return None
