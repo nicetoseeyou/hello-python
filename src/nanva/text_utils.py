@@ -15,13 +15,13 @@ class PrimitiveKVFormatter(object):
         :return: formatted key value in text
         """
         if value:
-            if type(value) == bool:
+            if isinstance(value, bool):
                 return f'{{"{key}":"{str(value).lower()}"}}'
-            elif type(value) == str:
+            elif isinstance(value, str):
                 return f'{{"{key}":"{value}"}}'
-            elif type(value) in (int, float):
+            elif isinstance(value, int) or isinstance(value, float):
                 return f'{{"{key}":{value}}}'
-            elif type(value) == Decimal:
+            elif isinstance(value, Decimal):
                 v = f'{value.normalize():f}'
                 return f'{{"{key}":{v}}}'
             else:
